@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Betway Botswana VIP Tickets | Winning Odds & Predictions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @keyframes zoomInOut {
+            0% { background-size: 100% auto; }
+            100% { background-size: 120% auto; }
+        }
+        @keyframes panLeftRight {
+            0% { background-position: left center; }
+            100% { background-position: right center; }
+        }
+        @keyframes panUpDown {
+            0% { background-position: center top; }
+            100% { background-position: center bottom; }
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .hero-bg {
+            background-image: url('https://www.betway.co.bw/wp-content/uploads/2023/03/Betway-Botswana-Logo.png');
+            background-size: auto 80%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: #0033a0; /* Betway's blue color */
+            background-attachment: fixed;
+        }
+        .aviator-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            animation: panLeftRight 25s infinite alternate;
+        }
+        .betway-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            animation: panUpDown 30s infinite alternate;
+        }
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .ticket-card {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .ticket-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+        .ticket-card:hover::before {
+            left: 100%;
+        }
+        .ticket-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .winning-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: #10B981;
+            color: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            z-index: 1;
+            animation: float 3s ease-in-out infinite;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #f59e0b;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .stats-card {
+            transition: all 0.3s ease;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px);
+        }
+        .stats-card:hover {
+            transform: scale(1.05);
+            background: rgba(255,255,255,0.2);
+        }
+        .feature-card {
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        .testimonial-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .pricing-card {
+            transition: all 0.3s ease;
+        }
+        .pricing-card:hover {
+            transform: scale(1.02);
+        }
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .mobile-menu.open {
+            max-height: 500px;
+        }
+        .glow {
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+        }
+        .countdown {
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+        }
+        .ticket-ribbon {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            overflow: hidden;
+        }
+        .ticket-ribbon span {
+            position: absolute;
+            display: block;
+            width: 225px;
+            padding: 15px 0;
+            background-color: #f59e0b;
+            box-shadow: 0 5px 10px rgba(0,0,0,.1);
+            color: #fff;
+            font-size: 13px;
+            text-transform: uppercase;
+            text-align: center;
+            right: -25px;
+            top: 30px;
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- WhatsApp Float Button -->
+    <div class="floating-whatsapp">
+        <a href="https://wa.me/254101279597" class="bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg flex items-center justify-center transition-all duration-300 transform hover:rotate-12">
+            <i class="fab fa-whatsapp text-2xl"></i>
+        </a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-blue-900 text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-trophy text-yellow-400 text-2xl"></i>
+                    <span class="text-xl font-bold">Betway Botswana VIP</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link hover:text-yellow-400 transition">Home</a>
+                    <a href="#vip-tickets" class="nav-link hover:text-yellow-400 transition">VIP Tickets</a>
+                    <a href="#tips" class="nav-link hover:text-yellow-400 transition">Tips</a>
+                    <a href="#aviator" class="nav-link hover:text-yellow-400 transition">Aviator</a>
+                    <a href="#payment" class="nav-link hover:text-yellow-400 transition">Payment</a>
+                </div>
+                <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="mobile-menu md:hidden bg-blue-800 mt-2 rounded-lg">
+                <div class="flex flex-col space-y-3 p-4">
+                    <a href="#home" class="hover:text-yellow-400 transition">Home</a>
+                    <a href="#vip-tickets" class="hover:text-yellow-400 transition">VIP Tickets</a>
+                    <a href="#tips" class="hover:text-yellow-400 transition">Tips</a>
+                    <a href="#aviator" class="hover:text-yellow-400 transition">Aviator</a>
+                    <a href="#payment" class="hover:text-yellow-400 transition">Payment</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg text-white py-20 md:py-32">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 animate__animated animate__fadeInDown">WIN BIG WITH OUR <span class="text-yellow-400 glow">VIP TICKETS</span></h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Premium betting tips and predictions with <span class="font-bold text-yellow-400">98% accuracy rate</span> for Betway Botswana</p>
+            
+            <!-- Countdown Timer -->
+            <div class="bg-black bg-opacity-50 rounded-lg p-4 mb-8 max-w-md mx-auto">
+                <h3 class="text-lg font-bold mb-2">NEXT VIP TICKET RELEASE IN:</h3>
+                <div class="countdown text-3xl font-bold text-yellow-400" id="countdown">00:00:00</div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#subscription" class="bg-yellow-500 hover:bg-yellow-600 text-blue-900 font-bold py-3 px-8 rounded-lg transition transform hover:-translate-y-1 shadow-lg">
+                    <i class="fas fa-crown mr-2"></i> Get VIP Access
+                </a>
+                <a href="https://wa.me/254101279597" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-lg transition transform hover:-translate-y-1 shadow-lg">
+                    <i class="fab fa-whatsapp mr-2"></i> Chat Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="bg-blue-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                <div class="stats-card p-4 rounded-lg">
+                    <div class="text-3xl font-bold">98%</div>
+                    <div class="text-sm">Accuracy Rate</div>
+                </div>
+                <div class="stats-card p-4 rounded-lg">
+                    <div class="text-3xl font-bold">500+</div>
+                    <div class="text-sm">Happy Clients</div>
+                </div>
+                <div class="stats-card p-4 rounded-lg">
+                    <div class="text-3xl font-bold">24/7</div>
+                    <div class="text-sm">Support</div>
+                </div>
+                <div class="stats-card p-4 rounded-lg">
+                    <div class="text-3xl font-bold">100%</div>
+                    <div class="text-sm">Satisfaction</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIP Tickets Section -->
+    <section id="vip-tickets" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4 text-blue-900">VIP TICKETS & PREDICTIONS</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Our carefully analyzed tickets with high winning probability delivered straight to your WhatsApp</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Winning Ticket Sample -->
+                <div class="ticket-card bg-white rounded-lg shadow-md overflow-hidden relative">
+                    <div class="winning-badge">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div class="ticket-ribbon">
+                        <span>VIP TICKETS</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xl font-bold text-blue-900">PREVIOUS BOOKINGS</h3>
+                            <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">PURE CORRECT SCORE</span>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex justify-between border-b pb-2">
+                                <span class="text-sm font-medium">Booking Code #1</span>
+                                <span class="font-bold text-green-500">WON</span>
+                            </div>
+                            <div class="flex justify-between border-b pb-2">
+                                <span class="text-sm font-medium">Booking Code #2</span>
+                                <span class="font-bold text-green-500">WON</span>
+                            </div>
+                            <div class="flex justify-between border-b pb-2">
+                                <span class="text-sm font-medium">Booking Code #3</span>
+                                <span class="font-bold text-green-500">WON</span>
+                            </div>
+                            <div class="flex justify-between border-b pb-2">
+                                <span class="text-sm font-medium">Booking Code #4</span>
+                                <span class="font-bold text-green-500">WON</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-sm font-medium">Booking Code #5</span>
+                                <span class="font-bold text-green-500">WON</span>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-4 border-t">
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-gray-500">CORRECT SCORE:</span>
+                                <span class="font-bold text-green-600">SAFE FIXTURES</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-gray-500">Status:</span>
+                                <span class="font-bold text-green-500">COMPLETED</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIP Tips Sample -->
+                <div class="ticket-card bg-white rounded-lg shadow-md overflow-hidden relative">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xl font-bold text-blue-900">VIP TIPS</h3>
+                            <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">HIGH ODDS</span>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex justify-between border-b pb-2">
+                                <span>Premium Match #1</span>
+                                <span class="font-bold text-green-500">Under 3.5</span>
+                            </div>
+                            <div class="flex justify-between border-b pb-2">
+                                <span>Premium Match #2</span>
+                                <span class="font-bold text-green-500">X2</span>
+                            </div>
+                            <div class="flex justify-between border-b pb-2">
+                                <span>Premium Match #3</span>
+                                <span class="font-bold text-green-500">1</span>
+                            </div>
+                            <div class="flex justify-between border-b pb-2">
+                                <span>Premium Match #4</span>
+                                <span class="font-bold text-green-500">GG</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Premium Match #5</span>
+                                <span class="font-bold text-green-500">Over 1.5</span>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-4 border-t">
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-gray-500">Odds:</span>
+                                <span class="font-bold text-green-600">85.20</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-gray-500">Status:</span>
+                                <span class="font-bold text-green-500">COMPLETED</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Current Ticket -->
+                <div class="ticket-card bg-white rounded-lg shadow-md overflow-hidden relative">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xl font-bold text-blue-900">BOOK NOW</h3>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">LIMITED SLOTS</span>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex justify-between border-b pb-2">
+                                <span class="text-sm font-medium">Booking Code #1</span>
+                                <span class="font-bold text-blue-600">BOOK NOW</span>
+                            </div>
+                            <div class="flex justify-between border-b pb-2">
+                                <span class="text-sm font-medium">Booking Code #2</span>
+                                <span class="font-bold text-green-500">BOOK NOW</span>
+                            </div>
+                            <div class="flex justify-between border-b pb-2">
+                                <span class="text-sm font-medium">Booking Code #3</span>
+                                <span class="font-bold text-green-500">BOOK NOW</span>
+                            </div>
+                            <div class="flex justify-between border-b pb-2">
+                                <span class="text-sm font-medium">Booking Code #4</span>
+                                <span class="font-bold text-green-500">BOOK NOW</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-sm font-medium">Booking Code #5</span>
+                                <span class="font-bold text-green-500">BOOK NOW</span>
+                            </div>
+                        </div>
+                        <div class="mt-6 text-center">
+                            <a href="#subscription" class="inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded-lg transition transform hover:-translate-y-1 shadow-lg">
+                                <i class="fas fa-book mr-2"></i> Book Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#subscription" class="inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-lg transition transform hover:-translate-y-1 shadow-lg">
+                    <i class="fas fa-book mr-2"></i> Book Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Aviator Section -->
+    <section id="aviator" class="aviator-bg text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-6">AVIATOR SIGNALS PREDICTOR</h2>
+                <p class="text-xl mb-8">Get accurate Aviator game predictions with our advanced algorithm. Our signals help you maximize your winnings on Betway Botswana.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                    <div class="feature-card bg-white bg-opacity-10 p-6 rounded-lg backdrop-blur-sm border border-white border-opacity-20">
+                        <i class="fas fa-chart-line text-3xl mb-4 text-yellow-400"></i>
+                        <h3 class="text-xl font-bold mb-2">High Accuracy</h3>
+                        <p>Our predictions have a proven track record of success with 85%+ accuracy.</p>
+                    </div>
+                    <div class="feature-card bg-white bg-opacity-10 p-6 rounded-lg backdrop-blur-sm border border-white border-opacity-20">
+                        <i class="fas fa-bolt text-3xl mb-4 text-yellow-400"></i>
+                        <h3 class="text-xl font-bold mb-2">Instant Alerts</h3>
+                        <p>Receive signals in real-time via WhatsApp before the round starts.</p>
+                    </div>
+                    <div class="feature-card bg-white bg-opacity-10 p-6 rounded-lg backdrop-blur-sm border border-white border-opacity-20">
+                        <i class="fas fa-coins text-3xl mb-4 text-yellow-400"></i>
+                        <h3 class="text-xl font-bold mb-2">Profit Maximization</h3>
+                        <p>Bankroll management strategies to help you maximize your winnings.</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col md:flex-row justify-center gap-4">
+                    <a href="https://wa.me/254101279597" class="bg-yellow-500 hover:bg-yellow-600 text-blue-900 font-bold py-3 px-8 rounded-lg transition transform hover:-translate-y-1 shadow-lg">
+                        <i class="fab fa-whatsapp mr-2"></i> Get Aviator Signals
+                    </a>
+                    <a href="#payment" class="bg-white hover:bg-gray-200 text-blue-900 font-bold py-3 px-8 rounded-lg transition transform hover:-translate-y-1 shadow-lg">
+                        <i class="fas fa-info-circle mr-2"></i> Learn More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subscription Plans -->
+    <section id="subscription" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4 text-blue-900">SUBSCRIPTION PLANS</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Choose the plan that fits your betting style and start winning today</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Weekly Plan -->
+                <div class="pricing-card bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+                    <div class="bg-blue-900 text-white py-4 px-6">
+                        <h3 class="text-xl font-bold">WEEKLY VIP ACCESS</h3>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-center mb-6">
+                            <span class="text-4xl font-bold">300P</span>
+                            <span class="text-gray-500">/week</span>
+                        </div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i> Daily VIP Tickets
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i> Pure Correct Matches
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i> 70-100 Odds Range
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i> WhatsApp Support
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i> Weekly Performance Report
+                            </li>
+                        </ul>
+                        <a href="https://wa.me/254101279597?text=I%20want%20to%20subscribe%20for%20Weekly%20VIP%20Access%20(300P)" class="block w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg text-center transition transform hover:-translate-y-1 shadow-lg">
+                            Subscribe Now
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Monthly Plan -->
+                <div class="pricing-card bg-white rounded-lg shadow-lg overflow-hidden border-2 border-yellow-400 transform hover:scale-101 transition-all duration-300">
+                    <div class="bg-yellow-500 text-blue-900 py-4 px-6">
+                        <h3 class="text-xl font-bold">MONTHLY VIP ACCESS</h3>
+                        <div class="text-sm font-medium">BEST VALUE - SAVE 45%</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-center mb-6">
+                            <span class="text-4xl font-bold">550P</span>
+                            <span class="text-gray-500">/month</span>
+                        </div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i> All Weekly Benefits
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i> Aviator Signals Included
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i> 80-120 Odds Range
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i> Priority Support
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i> Monthly Performance Analysis
+                            </li>
+                        </ul>
+                        <a href="https://wa.me/254101279597?text=I%20want%20to%20subscribe%20for%20Monthly%20VIP%20Access%20(550P)" class="block w-full bg-yellow-500 hover:bg-yellow-600 text-blue-900 font-bold py-3 px-4 rounded-lg text-center transition transform hover:-translate-y-1 shadow-lg">
+                            Subscribe Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Betway Section -->
+    <section class="betway-bg text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="flex justify-center mb-6">
+                    <i class="fas fa-star text-yellow-400 text-5xl animate-pulse"></i>
+                </div>
+                <h2 class="text-3xl font-bold mb-6">BETWAY BOTSWANA OFFICIAL PARTNER</h2>
+                <p class="text-xl mb-8">Our VIP tickets and predictions are optimized for Betway Botswana platform. Get the best odds and maximize your winnings with our premium service.</p>
+                <div class="flex flex-col md:flex-row justify-center gap-4">
+                    <a href="https://www.betway.co.bw" target="_blank" class="bg-white hover:bg-gray-200 text-blue-900 font-bold py-3 px-8 rounded-lg transition transform hover:-translate-y-1 shadow-lg">
+                        Visit Betway Botswana
+                    </a>
+                    <a href="https://wa.me/254101279597" class="bg-yellow-500 hover:bg-yellow-600 text-blue-900 font-bold py-3 px-8 rounded-lg transition transform hover:-translate-y-1 shadow-lg">
+                        <i class="fas fa-question-circle mr-2"></i> Need Help?
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Section -->
+    <section id="payment" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4 text-blue-900">PAYMENT PROCEDURE</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Simple and secure payment process to get you started quickly</p>
+            
+            <div class="max-w-3xl mx-auto bg-gray-50 rounded-lg shadow-md p-6 md:p-8">
+                <div class="flex items-center mb-6">
+                    <div class="bg-orange-500 text-white p-3 rounded-full mr-4">
+                        <i class="fas fa-money-bill-wave text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-orange-600">ORANGE MONEY TRANSFER</h3>
+                        <p class="text-gray-600">Send payment to: <span class="font-bold">+254721260226</span> (Kenya)</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h4 class="text-lg font-bold mb-4 text-blue-900">Payment Steps:</h4>
+                    <ol class="space-y-3 list-decimal list-inside">
+                        <li class="font-medium">Dial <span class="bg-gray-200 px-2 py-1 rounded">*145#</span></li>
+                        <li class="font-medium">Choose option <span class="bg-gray-200 px-2 py-1 rounded">2 'Orange Money Transactions'</span></li>
+                        <li class="font-medium">Enter your secret code</li>
+                        <li class="font-medium">Choose option <span class="bg-gray-200 px-2 py-1 rounded">5 'International Money Transfer'</span></li>
+                        <li class="font-medium">Select country to send to: <span class="bg-gray-200 px-2 py-1 rounded">Kenya</span></li>
+                        <li class="font-medium">Enter the mobile number: <span class="bg-gray-200 px-2 py-1 rounded">+254721260226</span> (include + not 00)</li>
+                        <li class="font-medium">Enter amount to send (300P for weekly or 550P for monthly)</li>
+                        <li class="font-medium">Select source of funds</li>
+                    </ol>
+                    
+                    <div class="mt-8 bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-exclamation-circle text-yellow-400"></i>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-yellow-700">
+                                    After payment, send proof of payment via WhatsApp to <span class="font-bold">+254101279597</span> to activate your subscription immediately.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 text-center">
+                        <a href="https://wa.me/254101279597" class="inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-lg transition transform hover:-translate-y-1 shadow-lg">
+                            <i class="fab fa-whatsapp mr-2"></i> Confirm Payment
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4 text-blue-900">WHAT OUR CLIENTS SAY</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Don't just take our word for it - hear from our satisfied subscribers</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="testimonial-card bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold mr-4">TM</div>
+                        <div>
+                            <h4 class="font-bold">Thabo M.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"The VIP tickets have transformed my betting experience. I've made over 5000P profit in just 2 months. The accuracy is incredible!"</p>
+                    <div class="mt-4 text-sm text-gray-500">
+                        <i class="fas fa-calendar-alt mr-2"></i> Subscribed for 3 months
+                    </div>
+                </div>
+                
+                <div class="testimonial-card bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold mr-4">KB</div>
+                        <div>
+                            <h4 class="font-bold">Kabelo B.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"The Aviator signals are game-changing! I've doubled my bankroll in a week. Support is always available when I need help."</p>
+                    <div class="mt-4 text-sm text-gray-500">
+                        <i class="fas fa-calendar-alt mr-2"></i> Subscribed for 5 months
+                    </div>
+                </div>
+                
+                <div class="testimonial-card bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold mr-4">LM</div>
+                        <div>
+                            <h4 class="font-bold">Lerato M.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Worth every thebe! The monthly subscription has paid for itself many times over. The pure correct tickets are so accurate."</p>
+                    <div class="mt-4 text-sm text-gray-500">
+                        <i class="fas fa-calendar-alt mr-2"></i> Subscribed for 2 months
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="https://wa.me/254101279597" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition transform hover:-translate-y-1 shadow-lg">
+                    <i class="fas fa-comments mr-2"></i> Chat With Our Team
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-blue-900 text-white py-12">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6">READY TO START WINNING?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Join hundreds of satisfied clients who are making consistent profits with our VIP tickets and predictions.</p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="https://wa.me/254101279597" class="bg-yellow-500 hover:bg-yellow-600 text-blue-900 font-bold py-3 px-8 rounded-lg transition transform hover:-translate-y-1 shadow-lg">
+                    <i class="fab fa-whatsapp mr-2"></i> Chat Now
+                </a>
+                <a href="#payment" class="bg-white hover:bg-gray-200 text-blue-900 font-bold py-3 px-8 rounded-lg transition transform hover:-translate-y-1 shadow-lg">
+                    <i class="fas fa-money-bill-wave mr-2"></i> Payment Info
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-bold mb-4 flex items-center">
+                        <i class="fas fa-trophy text-yellow-400 mr-2"></i>
+                        Betway Botswana VIP
+                    </h3>
+                    <p class="text-gray-400">Premium betting tips and predictions for Betway Botswana platform.</p>
+                    <div class="mt-4 flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="#vip-tickets" class="text-gray-400 hover:text-white transition">VIP Tickets</a></li>
+                        <li><a href="#aviator" class="text-gray-400 hover:text-white transition">Aviator Signals</a></li>
+                        <li><a href="#payment" class="text-gray-400 hover:text-white transition">Payment</a></li>
+                        <li><a href="#subscription" class="text-gray-400 hover:text-white transition">Subscription Plans</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contact Us</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fab fa-whatsapp mr-2 text-green-400"></i>
+                            <a href="https://wa.me/254101279597" class="text-gray-400 hover:text-white transition">+254 101 279 597</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2 text-blue-400"></i>
+                            <span class="text-gray-400">support@betwayvip.co.bw</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-clock mr-2 text-yellow-400"></i>
+                            <span class="text-gray-400">24/7 Support</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Payment Details</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-money-bill-wave mr-2 text-orange-400"></i>
+                            <span class="text-gray-400">Orange Money: +254721260226</span>
+                        </li>
+                        <li class="text-gray-400 text-sm">Country: Kenya</li>
+                        <li class="text-gray-400 text-sm">Name: Betway VIP</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
+                <p>© 2023 Betway Botswana VIP. All rights reserved.</p>
+                <p class="mt-2">This service is not affiliated with Betway Botswana. We provide independent betting tips and predictions.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('open');
+        });
+
+        // Countdown timer
+        function updateCountdown() {
+            const now = new Date();
+            let target = new Date();
+            
+            // Set target to 3 hours from now
+            target.setHours(now.getHours() + 3);
+            target.setMinutes(now.getMinutes());
+            target.setSeconds(now.getSeconds());
+            
+            const diff = target - now;
+            
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('countdown').textContent = 
+                `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        // Update countdown every second
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
